@@ -210,11 +210,12 @@ namespace CalculadoraDeMatrices
 
 		#endregion
 
+		#region operaciones
 		private void ButtonSumar_Click(object sender, EventArgs e)
 		{
 			CalculosMatrices.DataGridToMat(datagrid1, matriz1);
 			var matRes= CalculosMatrices.sumarMatriz(matriz1, matriz2);
-
+			matrizRes = matRes;
 			datagridRes = CreateDataGridMat(datagridRes, matRes.GetLength(0), matRes.GetLength(1));
 			ShowMat(MatRes, datagridRes);
 			CalculosMatrices.MatToDataGrid(matRes, datagridRes);
@@ -226,6 +227,32 @@ namespace CalculadoraDeMatrices
 		{
 			RellenarMat(datagrid1, 2);
 		}
+
+
+		private void BT_Escalar_Click_1(object sender, EventArgs e)
+		{
+			datagrid1.CellValueChanged -= Datagrid1_CellValueChanged;
+			matriz1 = CalculosMatrices.EscalarMatriz(matriz1, 2.5);
+			CalculosMatrices.MatToDataGrid(matriz1, datagrid1);
+			datagrid1.CellValueChanged += Datagrid1_CellValueChanged;
+		}
+
+		private void BT_Escalar2_Click(object sender, EventArgs e)
+		{
+			datagrid2.CellValueChanged -= Datagrid2_CellValueChanged;
+			matriz2 = CalculosMatrices.EscalarMatriz(matriz2, 2.5);
+			CalculosMatrices.MatToDataGrid(matriz2, datagrid2);
+			datagrid1.CellValueChanged += Datagrid2_CellValueChanged;
+		}
+
+		private void BT_Escalar3_Click(object sender, EventArgs e)
+		{
+			
+			matrizRes = CalculosMatrices.EscalarMatriz(matrizRes, 2.5);
+			CalculosMatrices.MatToDataGrid(matrizRes, datagridRes);
+		}
+
+		#endregion
 
 
 	}

@@ -53,5 +53,17 @@ namespace CalculadoraDeMatrices
 				}
 			}
 		}
+
+		public static double[,] EscalarMatriz(double[,] mat, double k) {
+			for (int i = 0; i < mat.GetLength(1); i++)
+			{
+				for (int j = 0; j < mat.GetLength(0); j++)
+				{
+					mat[j, i] *= k;
+				}
+			}
+			return mat;
+
+		}
 	}
 }

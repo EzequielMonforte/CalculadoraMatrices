@@ -47,6 +47,9 @@
 			this.MatRes = new System.Windows.Forms.GroupBox();
 			this.BT_Suma = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
+			this.BT_Escalar = new System.Windows.Forms.Button();
+			this.BT_Escalar2 = new System.Windows.Forms.Button();
+			this.BT_Escalar3 = new System.Windows.Forms.Button();
 			this.GB_CreateM1.SuspendLayout();
 			this.GP_CreateM2.SuspendLayout();
 			this.SuspendLayout();
@@ -137,7 +140,7 @@
 			// 
 			// TXB_filas2
 			// 
-			this.TXB_filas2.Location = new System.Drawing.Point(70, 36);
+			this.TXB_filas2.Location = new System.Drawing.Point(70, 38);
 			this.TXB_filas2.Name = "TXB_filas2";
 			this.TXB_filas2.Size = new System.Drawing.Size(53, 22);
 			this.TXB_filas2.TabIndex = 14;
@@ -227,11 +230,44 @@
 			this.button2.UseVisualStyleBackColor = true;
 			this.button2.Click += new System.EventHandler(this.Button2_Click);
 			// 
+			// BT_Escalar
+			// 
+			this.BT_Escalar.Location = new System.Drawing.Point(319, 321);
+			this.BT_Escalar.Name = "BT_Escalar";
+			this.BT_Escalar.Size = new System.Drawing.Size(32, 23);
+			this.BT_Escalar.TabIndex = 25;
+			this.BT_Escalar.Text = "k";
+			this.BT_Escalar.UseVisualStyleBackColor = true;
+			this.BT_Escalar.Click += new System.EventHandler(this.BT_Escalar_Click_1);
+			// 
+			// BT_Escalar2
+			// 
+			this.BT_Escalar2.Location = new System.Drawing.Point(733, 321);
+			this.BT_Escalar2.Name = "BT_Escalar2";
+			this.BT_Escalar2.Size = new System.Drawing.Size(32, 23);
+			this.BT_Escalar2.TabIndex = 26;
+			this.BT_Escalar2.Text = "k";
+			this.BT_Escalar2.UseVisualStyleBackColor = true;
+			this.BT_Escalar2.Click += new System.EventHandler(this.BT_Escalar2_Click);
+			// 
+			// BT_Escalar3
+			// 
+			this.BT_Escalar3.Location = new System.Drawing.Point(1193, 321);
+			this.BT_Escalar3.Name = "BT_Escalar3";
+			this.BT_Escalar3.Size = new System.Drawing.Size(32, 23);
+			this.BT_Escalar3.TabIndex = 27;
+			this.BT_Escalar3.Text = "k";
+			this.BT_Escalar3.UseVisualStyleBackColor = true;
+			this.BT_Escalar3.Click += new System.EventHandler(this.BT_Escalar3_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1286, 576);
+			this.Controls.Add(this.BT_Escalar3);
+			this.Controls.Add(this.BT_Escalar2);
+			this.Controls.Add(this.BT_Escalar);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.BT_Suma);
 			this.Controls.Add(this.GB_CreateM1);
@@ -274,6 +310,9 @@
 		private System.Windows.Forms.GroupBox MatRes;
 		private System.Windows.Forms.Button BT_Suma;
 		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Button BT_Escalar;
+		private System.Windows.Forms.Button BT_Escalar2;
+		private System.Windows.Forms.Button BT_Escalar3;
 	}
 }
 
