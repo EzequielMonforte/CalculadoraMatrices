@@ -43,92 +43,6 @@ namespace CalculadoraDeMatrices
 			CalculosMatrices.DataGridToMat(datagrid1, matriz1);
 		}
 
-		/*private string ConvertirMatrizDoubleString(double[] arr)
-		{
-			string res = "Resultado: ";
-			foreach (var item in arr)
-			{
-				res += item + ", ";
-			}
-			return res;
-		}
-		private double[] CargarEntradaArreglo()
-		{
-			try
-			{
-				var caracteres = Tx_CargarMatriz.Text.Trim(' ').Split(' ');
-				double[] arreglo = new double[caracteres.Length];
-				for (int i = 0; i < arreglo.Length; i++)
-				{
-					arreglo[i] = Convert.ToDouble(caracteres[i]);
-				}
-				listaMatrices.Add(arreglo);
-				LB_MatrizPrecargada.Text = "ultima matriz cargada: "+ Tx_CargarMatriz.Text;
-				Tx_CargarMatriz.Text = "";
-				return arreglo;
-			}
-			catch
-			{
-
-			}
-			return null;
-			
-		}
-
-		private void AgregarArregloLista(double[] arreglo)
-		{
-			LSB_MatricesCargadas.Items.Add(arreglo);
-		}
-
-		
-		private void BT_Escalar_Click(object sender, EventArgs e)
-		{
-			var arreglo= CargarEntradaArreglo();
-			double[] arr;
-			if (arreglo != null)
-			{
-				arr = (double[])arreglo.Clone();
-				for (int i = 0; i < arr.Length; i++)
-				{
-					arr[i] = Convert.ToDouble(TXB_K.Text) * arreglo[i];
-				}
-			}
-			else if (listaMatrices.Count > 0)
-			{
-				arr = listaMatrices[listaMatrices.Count - 1];
-				for (int i = 0; i < arr.Length; i++)
-				{
-					arr[i] = Convert.ToDouble(TXB_K.Text) * arr[i];
-				}
-
-			}
-			else return;
-			
-			
-			LB_Resultado.Text = ConvertirMatrizDoubleString(arr);
-		}
-
-		private void BT_SumarMatriz_Click(object sender, EventArgs e)
-		{
-			var arr= CargarEntradaArreglo();
-			double[] res = new double[arr.Length];
-			if (listaMatrices.Count > 1)
-			{
-				var arr2 = listaMatrices[listaMatrices.Count - 2];
-
-
-				if (arr.Length == arr2.Length)
-				{
-					for (int i = 0; i < res.Length; i++)
-					{
-						res[i] = arr[i] + arr2[i];
-					}
-					LB_Resultado.Text = ConvertirMatrizDoubleString(res);
-				}
-				else LB_Resultado.Text = "Las matrices no son del mismo orden";
-			}
-			
-		} */
 		#region Create Vector
 
 		private void BT_CreateMatriz2_Click(object sender, EventArgs e)
@@ -185,15 +99,20 @@ namespace CalculadoraDeMatrices
 		}
 
 		private DataGridView CreateDataGridMat(DataGridView dat,  int rows, int col) {
+
+			if (rows > 0 && col > 0)
+			{
+				dat = new DataGridView();
+				dat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+				dat.ColumnCount = col;
+				dat.Rows.Add(rows);
+				dat.AllowUserToAddRows = false;
+				dat.ColumnHeadersVisible = false;
+				dat.RowHeadersVisible = false;
+				return dat;
+			}
+			else return new DataGridView();
 			
-			dat= new DataGridView();
-			dat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-			dat.ColumnCount = col;
-			dat.Rows.Add(rows);
-			dat.AllowUserToAddRows = false;
-			dat.ColumnHeadersVisible = false;
-			dat.RowHeadersVisible = false;
-			return dat;
 			
 		}
 
@@ -214,15 +133,53 @@ namespace CalculadoraDeMatrices
 		private void ButtonSumar_Click(object sender, EventArgs e)
 		{
 			CalculosMatrices.DataGridToMat(datagrid1, matriz1);
-			var matRes= CalculosMatrices.sumarMatriz(matriz1, matriz2);
-			matrizRes = matRes;
-			datagridRes = CreateDataGridMat(datagridRes, matRes.GetLength(0), matRes.GetLength(1));
-			ShowMat(MatRes, datagridRes);
-			CalculosMatrices.MatToDataGrid(matRes, datagridRes);
+			CalculosMatrices.DataGridToMat(datagrid2, matriz2);
+			try
+			{
+				var matRes = CalculosMatrices.sumarMatriz(matriz1, matriz2);
+				matrizRes = matRes;
+				datagridRes = CreateDataGridMat(datagridRes, matRes.GetLength(0), matRes.GetLength(1));
+				ShowMat(MatRes, datagridRes);
+				CalculosMatrices.MatToDataGrid(matRes, datagridRes);
+			}
+			catch (Exception)
+			{
+
+				MessageBox.Show("Las matrices no son del mismo orden");
+			}
+			
 		}
 
-		
+		private void BT_Multiplicar_Click(object sender, EventArgs e)
+		{
+			CalculosMatrices.DataGridToMat(datagrid1, matriz1);
+			CalculosMatrices.DataGridToMat(datagrid2, matriz2);
+			var res= CalculosMatrices.MultiplicarMatriz(matriz1, matriz2);
+			matrizRes = res;
+			datagridRes = CreateDataGridMat(datagridRes, res.GetLength(0), res.GetLength(1));
+			ShowMat(MatRes, datagridRes);
+			CalculosMatrices.MatToDataGrid(res, datagridRes);
+		}
 
+		private void BT_Restar_Click(object sender, EventArgs e)
+		{
+			CalculosMatrices.DataGridToMat(datagrid1, matriz1);
+			CalculosMatrices.DataGridToMat(datagrid2, matriz2);
+			try
+			{
+				var matRes = CalculosMatrices.RestarMatriz(matriz1, matriz2);
+				matrizRes = matRes;
+				datagridRes = CreateDataGridMat(datagridRes, matRes.GetLength(0), matRes.GetLength(1));
+				ShowMat(MatRes, datagridRes);
+				CalculosMatrices.MatToDataGrid(matRes, datagridRes);
+			}
+			catch (Exception)
+			{
+
+				MessageBox.Show("Las matrices no son del mismo orden");
+			}
+
+		}
 		private void Button2_Click(object sender, EventArgs e)
 		{
 			RellenarMat(datagrid1, 2);
@@ -232,7 +189,7 @@ namespace CalculadoraDeMatrices
 		private void BT_Escalar_Click_1(object sender, EventArgs e)
 		{
 			datagrid1.CellValueChanged -= Datagrid1_CellValueChanged;
-			matriz1 = CalculosMatrices.EscalarMatriz(matriz1, 2.5);
+			matriz1 = CalculosMatrices.EscalarMatriz(matriz1, double.Parse(TXB_Escalar1.Text));
 			CalculosMatrices.MatToDataGrid(matriz1, datagrid1);
 			datagrid1.CellValueChanged += Datagrid1_CellValueChanged;
 		}
@@ -240,7 +197,7 @@ namespace CalculadoraDeMatrices
 		private void BT_Escalar2_Click(object sender, EventArgs e)
 		{
 			datagrid2.CellValueChanged -= Datagrid2_CellValueChanged;
-			matriz2 = CalculosMatrices.EscalarMatriz(matriz2, 2.5);
+			matriz2 = CalculosMatrices.EscalarMatriz(matriz2, double.Parse(TXB_Escalar2.Text));
 			CalculosMatrices.MatToDataGrid(matriz2, datagrid2);
 			datagrid1.CellValueChanged += Datagrid2_CellValueChanged;
 		}
@@ -248,12 +205,40 @@ namespace CalculadoraDeMatrices
 		private void BT_Escalar3_Click(object sender, EventArgs e)
 		{
 			
-			matrizRes = CalculosMatrices.EscalarMatriz(matrizRes, 2.5);
+			matrizRes = CalculosMatrices.EscalarMatriz(matrizRes, double.Parse(TXB_EscalarRes.Text));
 			CalculosMatrices.MatToDataGrid(matrizRes, datagridRes);
 		}
 
+
+
+
 		#endregion
 
+		private void BT_Tmat1_Click(object sender, EventArgs e)
+		{
+			datagrid1.CellValueChanged -= Datagrid1_CellValueChanged;
+			matriz1 = CalculosMatrices.GenerarTranspuesta(matriz1);
+			datagrid1=CreateDataGridMat(datagrid1, matriz1.GetLength(0), matriz1.GetLength(1));
+			ShowMat(Mat1, datagrid1);
+			CalculosMatrices.MatToDataGrid(matriz1, datagrid1);
+			datagrid1.CellValueChanged += Datagrid1_CellValueChanged;
+		}
 
+		private void BT_Tmat2_Click(object sender, EventArgs e)
+		{
+			datagrid2.CellValueChanged -= Datagrid2_CellValueChanged;
+			matriz2 = CalculosMatrices.GenerarTranspuesta(matriz2);
+			datagrid2 = CreateDataGridMat(datagrid2, matriz2.GetLength(0), matriz2.GetLength(1));
+
+			ShowMat(Mat2, datagrid2);
+			CalculosMatrices.MatToDataGrid(matriz2, datagrid2);
+			datagrid2.CellValueChanged += Datagrid2_CellValueChanged;
+		}
+
+		private void BT_TmatR_Click(object sender, EventArgs e)
+		{
+			matrizRes = CalculosMatrices.GenerarTranspuesta(matrizRes);
+			CalculosMatrices.MatToDataGrid(matrizRes, datagridRes);
+		}
 	}
 }

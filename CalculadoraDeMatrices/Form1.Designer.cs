@@ -50,6 +50,15 @@
 			this.BT_Escalar = new System.Windows.Forms.Button();
 			this.BT_Escalar2 = new System.Windows.Forms.Button();
 			this.BT_Escalar3 = new System.Windows.Forms.Button();
+			this.TXB_Escalar1 = new System.Windows.Forms.TextBox();
+			this.TXB_Escalar2 = new System.Windows.Forms.TextBox();
+			this.TXB_EscalarRes = new System.Windows.Forms.TextBox();
+			this.BT_Multiplicar = new System.Windows.Forms.Button();
+			this.BT_Restar = new System.Windows.Forms.Button();
+			this.BT_Tmat1 = new System.Windows.Forms.Button();
+			this.button1 = new System.Windows.Forms.Button();
+			this.BT_Tmat2 = new System.Windows.Forms.Button();
+			this.BT_TmatR = new System.Windows.Forms.Button();
 			this.GB_CreateM1.SuspendLayout();
 			this.GP_CreateM2.SuspendLayout();
 			this.SuspendLayout();
@@ -212,9 +221,9 @@
 			// 
 			// BT_Suma
 			// 
-			this.BT_Suma.Location = new System.Drawing.Point(379, 341);
+			this.BT_Suma.Location = new System.Drawing.Point(432, 322);
 			this.BT_Suma.Name = "BT_Suma";
-			this.BT_Suma.Size = new System.Drawing.Size(75, 23);
+			this.BT_Suma.Size = new System.Drawing.Size(83, 23);
 			this.BT_Suma.TabIndex = 23;
 			this.BT_Suma.Text = "Sumar";
 			this.BT_Suma.UseVisualStyleBackColor = true;
@@ -260,11 +269,100 @@
 			this.BT_Escalar3.UseVisualStyleBackColor = true;
 			this.BT_Escalar3.Click += new System.EventHandler(this.BT_Escalar3_Click);
 			// 
+			// TXB_Escalar1
+			// 
+			this.TXB_Escalar1.Location = new System.Drawing.Point(267, 321);
+			this.TXB_Escalar1.Name = "TXB_Escalar1";
+			this.TXB_Escalar1.Size = new System.Drawing.Size(46, 22);
+			this.TXB_Escalar1.TabIndex = 28;
+			// 
+			// TXB_Escalar2
+			// 
+			this.TXB_Escalar2.Location = new System.Drawing.Point(681, 322);
+			this.TXB_Escalar2.Name = "TXB_Escalar2";
+			this.TXB_Escalar2.Size = new System.Drawing.Size(46, 22);
+			this.TXB_Escalar2.TabIndex = 29;
+			// 
+			// TXB_EscalarRes
+			// 
+			this.TXB_EscalarRes.Location = new System.Drawing.Point(1141, 322);
+			this.TXB_EscalarRes.Name = "TXB_EscalarRes";
+			this.TXB_EscalarRes.Size = new System.Drawing.Size(46, 22);
+			this.TXB_EscalarRes.TabIndex = 30;
+			// 
+			// BT_Multiplicar
+			// 
+			this.BT_Multiplicar.Location = new System.Drawing.Point(429, 402);
+			this.BT_Multiplicar.Name = "BT_Multiplicar";
+			this.BT_Multiplicar.Size = new System.Drawing.Size(83, 23);
+			this.BT_Multiplicar.TabIndex = 31;
+			this.BT_Multiplicar.Text = "Multiplicar";
+			this.BT_Multiplicar.UseVisualStyleBackColor = true;
+			this.BT_Multiplicar.Click += new System.EventHandler(this.BT_Multiplicar_Click);
+			// 
+			// BT_Restar
+			// 
+			this.BT_Restar.Location = new System.Drawing.Point(432, 363);
+			this.BT_Restar.Name = "BT_Restar";
+			this.BT_Restar.Size = new System.Drawing.Size(83, 23);
+			this.BT_Restar.TabIndex = 32;
+			this.BT_Restar.Text = "Restar";
+			this.BT_Restar.UseVisualStyleBackColor = true;
+			this.BT_Restar.Click += new System.EventHandler(this.BT_Restar_Click);
+			// 
+			// BT_Tmat1
+			// 
+			this.BT_Tmat1.Location = new System.Drawing.Point(400, 121);
+			this.BT_Tmat1.Name = "BT_Tmat1";
+			this.BT_Tmat1.Size = new System.Drawing.Size(26, 23);
+			this.BT_Tmat1.TabIndex = 33;
+			this.BT_Tmat1.Text = "t";
+			this.BT_Tmat1.UseVisualStyleBackColor = true;
+			this.BT_Tmat1.Click += new System.EventHandler(this.BT_Tmat1_Click);
+			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(630, 277);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(26, 23);
+			this.button1.TabIndex = 34;
+			this.button1.Text = "t";
+			this.button1.UseVisualStyleBackColor = true;
+			// 
+			// BT_Tmat2
+			// 
+			this.BT_Tmat2.Location = new System.Drawing.Point(815, 121);
+			this.BT_Tmat2.Name = "BT_Tmat2";
+			this.BT_Tmat2.Size = new System.Drawing.Size(26, 23);
+			this.BT_Tmat2.TabIndex = 35;
+			this.BT_Tmat2.Text = "t";
+			this.BT_Tmat2.UseVisualStyleBackColor = true;
+			this.BT_Tmat2.Click += new System.EventHandler(this.BT_Tmat2_Click);
+			// 
+			// BT_TmatR
+			// 
+			this.BT_TmatR.Location = new System.Drawing.Point(1240, 121);
+			this.BT_TmatR.Name = "BT_TmatR";
+			this.BT_TmatR.Size = new System.Drawing.Size(26, 23);
+			this.BT_TmatR.TabIndex = 36;
+			this.BT_TmatR.Text = "t";
+			this.BT_TmatR.UseVisualStyleBackColor = true;
+			this.BT_TmatR.Click += new System.EventHandler(this.BT_TmatR_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1286, 576);
+			this.Controls.Add(this.BT_TmatR);
+			this.Controls.Add(this.BT_Tmat2);
+			this.Controls.Add(this.button1);
+			this.Controls.Add(this.BT_Tmat1);
+			this.Controls.Add(this.BT_Restar);
+			this.Controls.Add(this.BT_Multiplicar);
+			this.Controls.Add(this.TXB_EscalarRes);
+			this.Controls.Add(this.TXB_Escalar2);
+			this.Controls.Add(this.TXB_Escalar1);
 			this.Controls.Add(this.BT_Escalar3);
 			this.Controls.Add(this.BT_Escalar2);
 			this.Controls.Add(this.BT_Escalar);
@@ -313,6 +411,15 @@
 		private System.Windows.Forms.Button BT_Escalar;
 		private System.Windows.Forms.Button BT_Escalar2;
 		private System.Windows.Forms.Button BT_Escalar3;
+		private System.Windows.Forms.TextBox TXB_Escalar1;
+		private System.Windows.Forms.TextBox TXB_Escalar2;
+		private System.Windows.Forms.TextBox TXB_EscalarRes;
+		private System.Windows.Forms.Button BT_Multiplicar;
+		private System.Windows.Forms.Button BT_Restar;
+		private System.Windows.Forms.Button BT_Tmat1;
+		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button BT_Tmat2;
+		private System.Windows.Forms.Button BT_TmatR;
 	}
 }
 
